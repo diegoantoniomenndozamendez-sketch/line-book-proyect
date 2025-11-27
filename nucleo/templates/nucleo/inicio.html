@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LineBook – Inicio</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -55,6 +61,8 @@
     </style>
 </head>
 <body>
+
+    <!-- HEADER -->
     <header>
         <h1>LineBook</h1>
 
@@ -69,57 +77,67 @@
         </form>
     </header>
 
+    <!-- LIBROS RECOMENDADOS -->
     <h2 class="section-title">Libros recomendados</h2>
     <div class="book-grid">
         {% for libro in libros_recomendados %}
         <div class="book-card">
-            <img src="{{ libro.imagen }}" alt="{{ libro.titulo }}" />
+            <a href="{% url 'detalle_libro' libro.id %}">
+                <img src="{{ libro.imagen }}" alt="{{ libro.titulo }}">
+            </a>
             <div class="book-title">{{ libro.titulo }}</div>
         </div>
         {% empty %}
-        <!-- Si no hay libros, mostramos algunos de ejemplo -->
+        <!-- Ejemplos por defecto sin enlaces -->
         <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/71KilybDOoL.jpg" alt="Harry Potter" />
-            <div class="book-title">A</div>
+            <img src="https://m.media-amazon.com/images/I/71KilybDOoL.jpg" alt="Ejemplo 1">
+            <div class="book-title">Ejemplo 1</div>
         </div>
 
         <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/81gepf1eMqL.jpg" alt="El Principito" />
-            <div class="book-title">B</div>
+            <img src="https://m.media-amazon.com/images/I/81gepf1eMqL.jpg" alt="Ejemplo 2">
+            <div class="book-title">Ejemplo 2</div>
         </div>
 
         <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/81-349iYbfL.jpg" alt="1984" />
-            <div class="book-title">C</div>
+            <img src="https://m.media-amazon.com/images/I/81-349iYbfL.jpg" alt="Ejemplo 3">
+            <div class="book-title">Ejemplo 3</div>
         </div>
         {% endfor %}
     </div>
 
+    <!-- MÁS LIBROS -->
     <h2 class="section-title">Más libros</h2>
     <div class="book-grid">
         {% for libro in mas_libros %}
         <div class="book-card">
-            <img src="{{ libro.imagen }}" alt="{{ libro.titulo }}" />
+            <a href="{% url 'detalle_libro' libro.id %}">
+                <img src="{{ libro.imagen }}" alt="{{ libro.titulo }}">
+            </a>
             <div class="book-title">{{ libro.titulo }}</div>
         </div>
         {% empty %}
-        <!-- Más libros de ejemplo -->
         <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg" alt="Hábitos Atómicos" />
-            <div class="book-title">1</div>
+            <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg" alt="Hábitos Atómicos">
+            <div class="book-title">Ejemplo 1</div>
         </div>
 
         <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/71jLBXtWJWL.jpg" alt="El Alquimista" />
-            <div class="book-title">2</div>
+            <img src="https://m.media-amazon.com/images/I/71jLBXtWJWL.jpg" alt="El Alquimista">
+            <div class="book-title">Ejemplo 2</div>
         </div>
 
         <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/81AFhc1rAbL.jpg" alt="Dune" />
-            <div class="book-title">3</div>
+            <img src="https://m.media-amazon.com/images/I/81AFhc1rAbL.jpg" alt="Dune">
+            <div class="book-title">Ejemplo 3</div>
         </div>
         {% endfor %}
     </div>
+
+    <!-- Bootstrap JS -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 
 </body>
 </html>
