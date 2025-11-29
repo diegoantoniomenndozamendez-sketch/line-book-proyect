@@ -1,0 +1,7 @@
+print("====================================")
+print("Servidor iniciado correctamente!")
+print("Abrir en el navegador:")
+print("Inicio:   http://127.0.0.1:8000/")
+print("Login:    http://127.0.0.1:8000/login/")
+print("Registro: http://127.0.0.1:8000/register/")
+print("====================================")
