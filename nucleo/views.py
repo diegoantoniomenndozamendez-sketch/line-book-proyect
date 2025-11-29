@@ -5,8 +5,15 @@ def inicio(request):
     query = request.GET.get("q")
 
     if query:
-        libros_recomendados = Libro.objects.filter(titulo__icontains=query)
-        mas_libros = Libro.objects.filter(titulo__icontains=query)
+        # Si la búsqueda es numérica, asumimos que el usuario busca por ID exacto
+        if query.isdigit():
+            libros_recomendados = Libro.objects.filter(id=int(query))
+        else:
+            # Búsqueda por título (contiene, case-insensitive)
+            libros_recomendados = Libro.objects.filter(titulo__icontains=query)
+
+        # Cuando hay una búsqueda queremos mostrar sólo el/los resultados encontrados
+        mas_libros = []
     else:
         libros_recomendados = Libro.objects.all()[:3]
         mas_libros = Libro.objects.all()[3:10]

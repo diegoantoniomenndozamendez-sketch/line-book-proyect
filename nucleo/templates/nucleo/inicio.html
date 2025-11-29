@@ -88,21 +88,27 @@
             <div class="book-title">{{ libro.titulo }}</div>
         </div>
         {% empty %}
-        <!-- Ejemplos por defecto sin enlaces -->
-        <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/71KilybDOoL.jpg" alt="Ejemplo 1">
-            <div class="book-title">Ejemplo 1</div>
-        </div>
+            {% if query %}
+                <div class="book-card">
+                    <div class="book-title">No se encontraron libros.</div>
+                </div>
+            {% else %}
+                <!-- Ejemplos por defecto sin enlaces -->
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/71KilybDOoL.jpg" alt="Ejemplo 1">
+                    <div class="book-title">Ejemplo 1</div>
+                </div>
 
-        <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/81gepf1eMqL.jpg" alt="Ejemplo 2">
-            <div class="book-title">Ejemplo 2</div>
-        </div>
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/81gepf1eMqL.jpg" alt="Ejemplo 2">
+                    <div class="book-title">Ejemplo 2</div>
+                </div>
 
-        <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/81-349iYbfL.jpg" alt="Ejemplo 3">
-            <div class="book-title">Ejemplo 3</div>
-        </div>
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/81-349iYbfL.jpg" alt="Ejemplo 3">
+                    <div class="book-title">Ejemplo 3</div>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 
@@ -117,20 +123,27 @@
             <div class="book-title">{{ libro.titulo }}</div>
         </div>
         {% empty %}
-        <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg" alt="Hábitos Atómicos">
-            <div class="book-title">Ejemplo 1</div>
-        </div>
+            {% if query %}
+                <!-- Si hubo búsqueda, no mostrar ejemplos adicionales -->
+                <div class="book-card">
+                    <div class="book-title">No se encontraron más libros.</div>
+                </div>
+            {% else %}
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg" alt="Hábitos Atómicos">
+                    <div class="book-title">Ejemplo 1</div>
+                </div>
 
-        <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/71jLBXtWJWL.jpg" alt="El Alquimista">
-            <div class="book-title">Ejemplo 2</div>
-        </div>
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/71jLBXtWJWL.jpg" alt="El Alquimista">
+                    <div class="book-title">Ejemplo 2</div>
+                </div>
 
-        <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/81AFhc1rAbL.jpg" alt="Dune">
-            <div class="book-title">Ejemplo 3</div>
-        </div>
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/81AFhc1rAbL.jpg" alt="Dune">
+                    <div class="book-title">Ejemplo 3</div>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 
